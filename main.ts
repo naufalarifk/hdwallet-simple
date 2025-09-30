@@ -3,7 +3,7 @@ import viem from "viem";
 import { generateMnemonic, HDKey } from "viem/accounts";
 import { deriveToSolWallet } from "./src/actions/sol_to_wallet";
 import { wordlist } from "@scure/bip39/wordlists/english";
-import { mnemonicToSeed, mnemonicToSeedSync } from "@scure/bip39";
+import { mnemonicToSeedSync } from "@scure/bip39";
 import { deriveToEthWallet } from "./src/actions/eth_to_wallet";
 import { deriveToBtcWallet } from "./src/actions/btc_to_wallet";
 
