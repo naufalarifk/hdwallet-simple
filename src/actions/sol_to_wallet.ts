@@ -1,9 +1,9 @@
 import { HDKey } from "@scure/bip32";
-import { getSolanaDerivationPath } from "../tools/path_derivations";
+import { getDerivationPath } from "../tools/path_derivations";
 import { Keypair, PublicKey } from "@solana/web3.js";
 
 function deriveToSolWallet(masterKey: HDKey) {
-  const derivation = getSolanaDerivationPath(masterKey);
+  const derivation = getDerivationPath(masterKey, "solana");
   const { privateKey } = masterKey.derive(derivation);
   const keypair = Keypair.fromSeed(privateKey!);
   const address = keypair.publicKey.toBase58();

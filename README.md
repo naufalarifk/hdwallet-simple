@@ -21,8 +21,6 @@ bun.lock
 main.ts
 package.json
 src/
-  controller.ts
-  service.ts
   actions/
     btc_to_wallet.ts
     eth_to_wallet.ts

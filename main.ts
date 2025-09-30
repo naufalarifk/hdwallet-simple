@@ -11,10 +11,10 @@ const mnemonic = generateMnemonic(wordlist);
 const seed = mnemonicToSeedSync(mnemonic);
 const masterKey = HDKey.fromMasterSeed(seed);
 
-deriveToSolWallet(masterKey);
-deriveToEthWallet(masterKey);
-deriveToBtcWallet(masterKey);
+const sol = deriveToSolWallet(masterKey);
+const eth = deriveToEthWallet(masterKey);
+const btc = deriveToBtcWallet(masterKey);
 
-console.log("BTC:", deriveToBtcWallet(masterKey));
-console.log("SOL:", deriveToSolWallet(masterKey));
-console.log("ETH:", deriveToEthWallet(masterKey));
+console.log("BTC:", btc);
+console.log("SOL:", sol);
+console.log("ETH:", eth);

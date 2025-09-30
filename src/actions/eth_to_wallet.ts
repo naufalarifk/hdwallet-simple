@@ -1,9 +1,9 @@
 import { HDKey } from "@scure/bip32";
-import { getEthereumDerivationPath } from "../tools/path_derivations";
+import { getDerivationPath } from "../tools/path_derivations";
 import { ethers } from "ethers";
 
 function deriveToEthWallet(masterKey: HDKey) {
-  const derivation = getEthereumDerivationPath(masterKey);
+  const derivation = getDerivationPath(masterKey, "ethereum");
   const { privateKey } = masterKey.derive(derivation);
   const privateKeyHex = Buffer.from(privateKey!).toString("hex");
   const { address } = new ethers.Wallet(privateKeyHex);

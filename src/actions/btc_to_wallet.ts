@@ -1,12 +1,12 @@
 import { HDKey } from "@scure/bip32";
-import { getBitcoinDerivationPath } from "../tools/path_derivations";
+import { getDerivationPath } from "../tools/path_derivations";
 
 import * as bitcoin from "bitcoinjs-lib";
 import * as ecPair from "ecpair";
 import * as ecc from "tiny-secp256k1";
 
 function deriveToBtcWallet(masterKey: HDKey) {
-  const derivation = getBitcoinDerivationPath(masterKey);
+  const derivation = getDerivationPath(masterKey, "bitcoin");
   const { privateKey } = masterKey.derive(derivation);
   const ECPair = ecPair.ECPairFactory(ecc);
   const keyPair = ECPair.fromPrivateKey(Buffer.from(privateKey!));
